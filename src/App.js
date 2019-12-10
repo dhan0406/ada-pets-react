@@ -22,7 +22,14 @@ class App extends Component {
     console.log(pets);
   }
 
+  addPet = (pet) => {
+    const { pets } = this.state;
 
+    pets.push(pet);
+    this.setState({
+      pets,
+    });
+  }
 
 
   render () {
@@ -42,7 +49,7 @@ class App extends Component {
           { /* Wave 1:  Where PetList should appear */}
         </section>
         <section className="new-pet-form-wrapper">
-          { /* Wave 3:  Where NewPetForm should appear */}
+          <NewPetForm addPetCallback={this.addPet} />
         </section>
       </main>
     );
